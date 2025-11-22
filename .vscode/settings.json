@@ -60,12 +60,17 @@
         "*.asset": "yaml",
         "*.meta": "yaml",
         "*.prefab": "yaml",
-        "*.unity": "yaml",
+        "*.unity": "yaml"
     },
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "RiptideGuide.slnx"
+    "dotnet.defaultSolution": "RiptideStarter.slnx",
+    "dotrush.roslyn.projectOrSolutionFiles": [
+        "/home/alex/Projects/RiptideStarter/RiptideStarter.slnx",
+        "/home/alex/Projects/RiptideStarter/Assembly-CSharp-Editor.csproj",
+        "/home/alex/Projects/RiptideStarter/Assembly-CSharp.csproj"
+    ]
 }
