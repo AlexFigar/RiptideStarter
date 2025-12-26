@@ -4,9 +4,11 @@ using UnityEngine;
 public static class ClientBehaviour
 {
     #region Messages
-    public static void SendDataToServer(ushort clientID)
+    public static void SendDataToServer()
     {
-        Debug.Log("Sending data to server");
+        Message message = Message.Create( MessageSendMode.Reliable, MessageID.HelloServerImAClient);
+        message.AddString("Hello Server!");
+        NetworkManager.Instance.client.Send(message);
     }
     #endregion
 
@@ -15,7 +17,7 @@ public static class ClientBehaviour
     [MessageHandler((ushort)MessageID.HelloClientImAServer)]
     public static void ReceivedDataFromServer(Message message)
     {
-        Debug.Log("Server says hello!");
+        Debug.Log("Server says "+ message.GetString());
     }
     #endregion
 }

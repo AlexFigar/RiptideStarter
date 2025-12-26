@@ -44,18 +44,16 @@ public class NetworkManager : MonoBehaviour
     public void StartClient()
     {
         client = new();
-        client.ClientConnected += ConnectedToServer;
+        client.Connected += ConnectedToServer;
         client.Connect("127.0.0.1:7777");
     }
     private void ClientConnected(object sender, ServerConnectedEventArgs e)
     {
         ServerBehaviour.SendDataToClient(e.Client.Id);
-        Debug.Log("Client has connected");
     }
-    private void ConnectedToServer(object sender, ClientConnectedEventArgs e)
+    private void ConnectedToServer(object sender, EventArgs e)
     {
-        ClientBehaviour.SendDataToServer(client.Id);
-        Debug.Log("Connected to server");
+        ClientBehaviour.SendDataToServer();
     }
 
     public void FixedUpdate()
